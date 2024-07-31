@@ -1,19 +1,21 @@
 exports.Login =
 class Login{
-
     constructor(page){
         this.page=page;
-        this.userid="//input[@placeholder='Email Address']";
-        this.password="//input[@placeholder='Enter Password']";
-        this.submit="//button[@type='submit']";
-
+        this.email="//input[@d='username']";
+        this.pass="//input[@type='password']";
+        this.login="//div/div[2]/form/button";      
     }
-    async openUrl(){
-        await this.page.goto(" https://www.marketsmojo.com/mojofeed/login");
+     async openurl(){
+    await this.page.goto("https://www.marketsmojo.com/mojofeed/login");
     }
-    async login(username,password){
-        await this.page.locator(this.userid).fill(usename);
-        await this.page.locator(this.password).fill(password);
-        await this.page.locator(this.submit).click();
+    async Email(userid){
+      await this.page.locator(this.email).fill(userid);
+    }
+    async Password(password){
+        await this.page.locator(this.pass).fill(password);
+    }
+    async loginPage(){    
+    await this.page.locator(this.login).click();
     }
 }
