@@ -12,7 +12,7 @@ await log.loginPage();
 
 });
 
-test.skip('logout Account',async ({page})=>{
+test.afterEach('logout Account',async ({page})=>{
     const out =new Logout(page);
     await out.logout();
     await page.pause();
