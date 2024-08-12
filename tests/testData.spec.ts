@@ -1,7 +1,12 @@
 import { test, expect } from '@playwright/test';
+import { TIMEOUT } from 'dns';
 
-test('test', async ({ page }) => {
+test('test - current List', async ({ page }) => {
   await page.goto('https://www.marketsmojo.com/mojofeed/login');
+  if(await page.locator('svg').isVisible()){
+    await page.locator('svg').click();
+  }
+  await page.waitForTimeout(500);
   await page.getByPlaceholder('Email Address').fill('dsatyam1@gmail.com');
   await page.getByPlaceholder('Enter Password').click();
   await page.getByPlaceholder('Enter Password').fill('Mojo@123');
@@ -15,7 +20,7 @@ test('test', async ({ page }) => {
   await page.locator('//div[normalize-space()="Top Mojo Stocks"]').click();
   await page.waitForTimeout(2000);
   await page.locator('//a[normalize-space()="Current List"]').click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(2000); 
   const tablesel= '//*[@id="navallcap"]/div/div[2]/div/div/table'; 
   const tabelData = new Map<string, string[]>();
   const rows = await page.$$(tablesel +'//tr'); 
@@ -26,7 +31,7 @@ test('test', async ({ page }) => {
     if(cells.length > 0){
       const key = await cells[0].textContent()||'';
       const values: string[] =[];
-      for(let i =1; i<cells.length;i++){
+      for(let i =1; i<cells.length;i++){   
         const value = await cells[i].textContent();
         console.log(`value: ${value}`);
         values.push((value||'').trim());

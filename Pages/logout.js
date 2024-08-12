@@ -2,12 +2,12 @@ exports.Logout=
 class Logout {
     constructor (page){
         this.page =page;
-        this.prof="//div/nav[2]/ul/li[3]/div/button/img";
-        this.signout="//*[@id='mySidepanelright']/div[2]/a[8]"
+        //his.prof= page.getByRole('button',{name:'logo'});
+        //this.signout=page.locator('#mm-header').getByText('Logout');
     }
     async logout(){
-        await this.page.locator(this.prof).click();
-        await this.page.locator(this.signout).click();
+        await this.page.locator('#mm-header').getByText('Logout');
+        await this.page.getByRole('button',{name:'logo'}).click();  
     }
 }
  
