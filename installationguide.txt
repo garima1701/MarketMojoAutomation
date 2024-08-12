@@ -1,0 +1,10 @@
+to setup project first time in the machine
+npm install playwright@1.45.3
+npm install xlsx@0.18.5
+
+To execute command:
+
+npx playwright test testData.spec.ts
+
+Note1: before running the code everytime go to page-> outputfiles-> dataFromMap.xlsx file and _old in all the individual sheet names only then execute the command
+Note2: due to dynamic advertisements added randomly on the page, so it may happen for some iterations code may not be able to fetch data, tried to handel these random ads as much possible but still this makes the behaviour of the tool unstable.

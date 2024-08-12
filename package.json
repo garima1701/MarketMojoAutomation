@@ -1,5 +1,9 @@
 {
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "package.json": "^2.0.1",
+>>>>>>> 3e8e142e904312bdae72c0f63008576741f12bc5
     "playwright": "^1.45.3",
     "xlsx": "^0.18.5"
   },
